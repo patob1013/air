@@ -1,0 +1,28 @@
+<h2>Flight Schedule</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Flight #</th>
+      <th>From</th>
+      <th>To</th>
+      <th>When</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @flights.each do |flight| %>
+      <tr class="<%= cycle("unshaded", "shaded") -%>" data-number="<%= flight.number %>">
+        <td><%= link_to flight.number, flight_url(flight) %></td>
+        <td><%= flight.departure_airport.city %></td>
+        <td><%= flight.arrival_airport.city %></td>
+        <td><%= flight.departs_at.strftime("%l:%M %p") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @flights %>
+
+
+
+

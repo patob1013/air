@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Air</title>
+  <title>Academy Air</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="header">
+  <h1><%= link_to "Academy Air", root_url %></h1>
+  
+  <% if session[:user_id].blank? %>
+    <p><%= link_to "Sign Up", new_user_url %> |
+      <%= link_to "Sign In", signin_url %></p>
+  <% else %>
+    <p><%= link_to "Sign Out", signout_url %></p>
+  <% end %>
+</div>
+
+<p id="notice"><%= notice %></p>
 
 <%= yield %>
 
