@@ -1,5 +1,7 @@
 Air::Application.routes.draw do
   
+  resources :reservations
+
   root :to => 'flights#index'
   
   get '/sessions/new' => 'sessions#new', :as => :signin

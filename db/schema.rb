@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120229160830) do
+ActiveRecord::Schema.define(:version => 20120229170140) do
 
   create_table "airports", :force => true do |t|
     t.string   "code"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(:version => 20120229160830) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end
+
+  create_table "reservations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "flight_id"
+    t.string   "card_number"
+    t.date     "departs_on"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "reservations", ["flight_id"], :name => "index_reservations_on_flight_id"
+  add_index "reservations", ["user_id"], :name => "index_reservations_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "first"

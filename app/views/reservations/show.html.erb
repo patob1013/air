@@ -1,0 +1,18 @@
+<p>
+  Reservation for:
+</p>
+<p><%= @reservation.user.first %> <%= @reservation.user.last %></p>
+
+<p>
+  <b>Flight Details</b>
+  <%= render 'flights/flight_details'%>
+</p>
+
+<p>
+  <b>Departs on:</b>
+  <%= @reservation.departs_on %>
+</p>
+
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) %> |
+<%= link_to 'Back', reservations_path %>

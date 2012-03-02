@@ -1,19 +1,9 @@
 <h2>Flight #<%= @flight.number %></h2>
 
+<%= reserve_button %>
+
 <div id="flight_details">
 
-  <p>Departs From: 
-      <strong><%= @flight.departure_airport.code %> 
-      <%= @flight.departure_airport.city %></strong>
-  </p>
-  <p>Departure Time: <strong><%= @flight.departs_at.strftime("%l:%M %P") %></strong></p>
-  </p>
-  
-  <p>Arrives: 
-      <strong><%= @flight.arrival_airport.code %> 
-      <%= @flight.arrival_airport.city %></strong>
-  </p>
-  <p>Arrival Time: <strong><%= @flight.arrives_at.strftime("%l:%M %P") %></strong></p>
-  
-  <p>Miles Earned: <strong><%= @flight.distance %> miles.</p>
+  <%= render 'flight_details' %>
+
 </div>

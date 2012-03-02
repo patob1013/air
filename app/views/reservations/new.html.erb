@@ -1,0 +1,12 @@
+<h1>New reservation</h1>
+
+<h3><%= @user.first %> <%= @user.last %></h3>
+
+<%= render 'flights/flight_details' %>
+
+<%= render 'form' %>
+
+<p><strong>Flight Information</strong></p>
+
+
+<%= link_to 'Back', reservations_path %>
